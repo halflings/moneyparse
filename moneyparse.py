@@ -10,15 +10,16 @@ RELEVANT_CHAR = '[0-9,\.]'
 CURRENCY_MAP = {'eur' : ('€', 'eur', 'euro'),
                 'gbp' : ('£', 'gbp', 'pound'),
                 'usd' : ('$', 'usd', 'dollar'),
-                'cny' : ('¥', 'cny', 'yuan'),
+                'cny' : ('cny', 'yuan'),
+                'jpy' : ('円', '圓', '¥', 'yen'),
                 'sek' : ('sek'),
                 'twd' : ('twd', 'nt$'),
                 'vnd' : ('vnd', '₫'),
                 'ars' : ('ars'),
-                'mad' : ('mad', 'dh')}
+                'mad' : ('mad', 'dh'),
+                'inr' : ('inr', '₹')} 
 
 RATE_EXCHANGE_API = 'http://rate-exchange.appspot.com/currency?from={}&to={}'
-
 
 
 class Currency(object):
