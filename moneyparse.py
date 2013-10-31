@@ -47,6 +47,10 @@ class Currency(object):
                 break
 
     def to(self, target_currency):
+        """
+            Converts the currency to the target_currency by using the current
+            rate exchange. Uses the 'rate-exchange.appspot.com' API
+        """
         target_currency = target_currency.lower()
 
         if not self.currency:
@@ -78,17 +82,24 @@ class Currency(object):
 
 if __name__ == '__main__':
 
-    c = Currency('$399,394')
-    print c
+    m = '$399,394.12'
+    print 'Raw input: {}'.format(m)
+    c = Currency(m)
+    print 'Parsed currency:'
+    print ' . {} \n'.format(c)
 
+    print 'Converting to Euro:'
     c.to('EUR')
-    print c
+    print ' . {} \n'.format(c)
 
+    print 'Converting to Moroccan Dirhams:'
     c.to('MAD')
-    print c
+    print ' . {} \n'.format(c)
 
+    print 'Converting back to Euro:'
     # Remember: rate exchange isn't symetric
     c.to('EUR')
-    print c
+    print ' . {} \n'.format(c)
 
-    print Currency('300')
+    print 'Parsing an input that lacks a currency:'
+    print ' . {} \n'.format(Currency('300,128,193.03'))
